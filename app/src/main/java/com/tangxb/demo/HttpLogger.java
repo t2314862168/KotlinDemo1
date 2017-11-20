@@ -2,6 +2,8 @@ package com.tangxb.demo;
 
 import android.util.Log;
 
+import com.orhanobut.logger.Logger;
+
 import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
@@ -27,7 +29,7 @@ public class HttpLogger implements HttpLoggingInterceptor.Logger {
             mMessage.append(message.concat("\n"));
             // 请求或者响应结束，打印整条日志
             if (message.startsWith("<-- END HTTP")) {
-                Log.d(TAG, mMessage.toString());
+                Logger.t(TAG).d(mMessage.toString());
             }
         } catch (Exception e) {
             System.out.println();
